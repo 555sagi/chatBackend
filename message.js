@@ -6,8 +6,11 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "http://localhost:5173" // React dev server
+  origin: "*",  // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
+
 
 app.listen(3000, async () => {
   await connectDB();
